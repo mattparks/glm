@@ -42,7 +42,8 @@ source_group("SIMD Files" FILES ${SIMD_SOURCE})
 source_group("SIMD Files" FILES ${SIMD_INLINE})
 source_group("SIMD Files" FILES ${SIMD_HEADER})
 
-add_library(glm ${ROOT_TEXT} ${ROOT_MD} ${ROOT_NAT}
+add_library(glm ${GLM_LIBRARY_TYPE}
+	${ROOT_TEXT}      ${ROOT_MD}        ${ROOT_NAT}
 	${ROOT_SOURCE}    ${ROOT_INLINE}    ${ROOT_HEADER}
 	${CORE_SOURCE}    ${CORE_INLINE}    ${CORE_HEADER}
 	${EXT_SOURCE}     ${EXT_INLINE}     ${EXT_HEADER}

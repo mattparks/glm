@@ -2,6 +2,13 @@ cmake_minimum_required(VERSION 3.2 FATAL_ERROR)
 cmake_policy(VERSION 3.2)
 
 option(GLM_INSTALL "Create installation target" ON)
+set(GLM_LIBRARY_TYPE "STATIC" CACHE STRING "Linking type for library")
+
+set_property(CACHE GLM_LIBRARY_TYPE PROPERTY STRINGS STATIC SHARED)
+
+if(GLM_LIBRARY_TYPE MATCHES "SHARED")
+    set(CMAKE_POSITION_INDEPENDENT_CODE ON)
+endif()
 
 file(READ "glm/detail/setup.hpp" GLM_SETUP_FILE)
 string(REGEX MATCH "#define[ ]+GLM_VERSION_MAJOR[ ]+([0-9]+)" _ ${GLM_SETUP_FILE})
